@@ -1,6 +1,6 @@
 ﻿using DemoDDD.Application.Abstractions.Behaviors;
 
-namespace Exceptions
+namespace DemoDDD.Application.Exceptions
 {
     public sealed class ValidationException : Exception
     {
