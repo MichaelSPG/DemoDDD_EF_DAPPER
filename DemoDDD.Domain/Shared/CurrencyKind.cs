@@ -14,7 +14,7 @@
             Eur
         };
 
-        public static CurrencyKind? FromCode(string code)
+        public static CurrencyKind FromCode(string code)
         {
             return All.FirstOrDefault(x => x.Code == code) ?? throw new ApplicationException("Currency code is not valid");
         }

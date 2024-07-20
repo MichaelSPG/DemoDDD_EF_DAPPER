@@ -9,11 +9,11 @@
         }
         public Guid Id { get; init; }
 
-        public IReadOnlyList<IDomainEvent> DomainEvents() 
+        public IReadOnlyList<IDomainEvent> GetDomainEvents() 
         {
             return _domainEvents.ToList();
         }
-        public void ClearEvents() => _domainEvents.Clear();
+        public void ClearDomainEvents() => _domainEvents.Clear();
         protected void RaiseDomainEvent(IDomainEvent domainEvent)
         {
             _domainEvents.Add(domainEvent);

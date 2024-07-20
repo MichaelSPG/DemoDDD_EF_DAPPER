@@ -30,5 +30,7 @@ internal sealed class VechicleConfiguration : IEntityTypeConfiguration<Vehicle>
             pBuilder.Property(curency => curency.CurrencyKind)
             .HasConversion(cType => cType.Code, code => CurrencyKind.FromCode(code!));
         });
+
+        builder.Property<uint>("Version").IsRowVersion();
     }
 }

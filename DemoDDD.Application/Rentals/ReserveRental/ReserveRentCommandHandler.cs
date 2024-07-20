@@ -1,5 +1,6 @@
 ﻿using DemoDDD.Application.Abstractions.Clock;
 using DemoDDD.Application.Abstractions.Messaging;
+using DemoDDD.Application.Exceptions;
 using DemoDDD.Domain.Abstractions;
 using DemoDDD.Domain.Rentals;
 using DemoDDD.Domain.Users;
@@ -58,18 +59,25 @@ namespace DemoDDD.Application.Rentals.ReserveRent
                 return Result.Failure<Guid>(RentalErrors.Overlap);
             }
 
-            var rent = Rental.Reserve(
-                vehicle, 
-                user.Id, 
+            try
+            {
+                var rent = Rental.Reserve(
+                vehicle,
+                user.Id,
                 rentDays,
-                _dateTimeProvider.CurrentTime, 
+                _dateTimeProvider.CurrentTime,
                 _priceService);
 
-            _rentRepository.Add(rent);
+                _rentRepository.Add(rent);
 
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
+                await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-            return rent.Id;
+                return rent.Id;
+            }
+            catch (ConcurrencyException) 
+            {
+                return Result.Failure<Guid>(RentalErrors.Overlap);
+            }            
         }
     }
 }
