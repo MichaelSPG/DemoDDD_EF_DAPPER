@@ -1,11 +1,5 @@
 ﻿using DemoDDD.Domain.Abstractions;
-using DemoDDD.Domain.Reviews;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DemoDDD.Infrastucture
 {
@@ -14,7 +8,12 @@ namespace DemoDDD.Infrastucture
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
-        public DbSet<Rating> Rating { get; set; }
-        public DbSet<Commentary> Commentaries { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Add automatic entities configurations
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
