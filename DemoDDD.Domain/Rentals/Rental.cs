@@ -7,6 +7,9 @@ namespace DemoDDD.Domain.Rentals
 {
     public sealed class Rental : Entity
     {
+        private Rental() 
+        {
+        }
         private Rental(Guid id
             , RentalStatus status
             , Guid vehicleId

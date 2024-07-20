@@ -11,6 +11,10 @@ namespace DemoDDD.Domain.Vehicles
 {
     public sealed class Vehicle : Entity
     {
+        private Vehicle()
+        {
+
+        }
         public Vehicle(
             Guid id,
             Model model, 

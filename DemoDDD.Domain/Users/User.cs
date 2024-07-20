@@ -5,6 +5,9 @@ namespace DemoDDD.Domain.Users
 {
     public sealed class User : Entity
     {
+        private User()
+        {
+        }
         private User(Guid id, Name names, LastName lastName, Email email) 
             : base(id)
         {
