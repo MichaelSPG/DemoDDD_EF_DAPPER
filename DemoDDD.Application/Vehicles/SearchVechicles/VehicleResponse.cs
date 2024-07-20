@@ -1,12 +1,4 @@
-﻿using DemoDDD.Domain.Shared;
-using DemoDDD.Domain.Vehicles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DemoDDD.Application.Vehicles.SearchVechicles
+﻿namespace DemoDDD.Application.Vehicles.SearchVechicles
 {
     public sealed class VehicleResponse
     {

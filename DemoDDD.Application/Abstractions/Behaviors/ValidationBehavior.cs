@@ -1,5 +1,4 @@
 ﻿using DemoDDD.Application.Abstractions.Messaging;
-using DemoDDD.Domain.Abstractions;
 using FluentValidation;
 using MediatR;
 
