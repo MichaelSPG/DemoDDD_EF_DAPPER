@@ -38,7 +38,7 @@ namespace DemoDDD.Application.Abstractions.Behaviors
             {
                 throw new Exceptions.ValidationException(validationErrors);
             }
-            throw new NotImplementedException();
+            return await next();
         }
     }
 }

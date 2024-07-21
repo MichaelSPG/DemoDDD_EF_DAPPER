@@ -23,7 +23,7 @@ namespace DemoDDD.Domain.Vehicles
             Currency price, 
             Currency maintenanceAmount, 
             DateTime lastRentDate,
-            List<Accesories> accesories)
+            List<Accesory> accesories)
             : base(id)
         {
             Model = model;
@@ -41,6 +41,6 @@ namespace DemoDDD.Domain.Vehicles
         public Currency Price { get; private set; }
         public Currency MaintenanceAmount { get; private set; }
         public DateTime? LastRentDate{ get; internal set; }
-        public List<Accesories> Accesories { get; private set; } = new();
+        public List<Accesory> Accesories { get; private set; } = new();
     }
 }

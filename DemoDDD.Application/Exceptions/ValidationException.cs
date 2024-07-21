@@ -4,7 +4,7 @@ namespace DemoDDD.Application.Exceptions
 {
     public sealed class ValidationException : Exception
     {
-        private IEnumerable<ValidationError> ValidationErrors { get; }
+        public IEnumerable<ValidationError> ValidationErrors { get; }
 
         public ValidationException(IEnumerable<ValidationError> validationErrors)
         {

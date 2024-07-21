@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DemoDDD.Domain.Vehicles
 {
-    public enum Accesories
+    public enum Accesory
     {
         Wifi = 1,
         AirConditioning,

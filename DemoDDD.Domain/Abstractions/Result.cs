@@ -52,9 +52,7 @@ namespace DemoDDD.Domain.Abstractions
         }
 
         [NotNull]
-        public TValue? Value => IsSuccess
-            ? _value! 
-            : throw new InvalidOperationException("Value is not valid");
+        public TValue? Value => _value!;
 
         public static implicit operator Result<TValue>(TValue? value) => Create(value);
     }

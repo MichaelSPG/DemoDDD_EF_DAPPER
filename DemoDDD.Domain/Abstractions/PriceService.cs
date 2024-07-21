@@ -18,9 +18,9 @@ namespace DemoDDD.Domain.Abstractions
             {
                 accesoriesPercent += item switch
                 {
-                    Accesories.AppleCar or Accesories.AndroidCar => 0.05m,
-                    Accesories.AirConditioning => 0.02m,
-                    Accesories.Maps => 0.01m,
+                    Accesory.AppleCar or Accesory.AndroidCar => 0.05m,
+                    Accesory.AirConditioning => 0.02m,
+                    Accesory.Maps => 0.01m,
                     _ => 0.0m
                 };
             }

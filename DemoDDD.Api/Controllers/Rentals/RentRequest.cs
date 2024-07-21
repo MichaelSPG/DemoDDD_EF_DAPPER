@@ -3,6 +3,6 @@
 public sealed record RentRequest(
     Guid VechicleId,
     Guid UserId,
-    DateOnly StartDate,
-    DateOnly EndDate
+    DateTime StartDate,
+    DateTime EndDate
 );

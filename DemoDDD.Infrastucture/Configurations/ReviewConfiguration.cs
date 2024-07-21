@@ -20,18 +20,18 @@ internal sealed class ReviewConfiguration : IEntityTypeConfiguration<Review>
 
         builder.Property(v => v.Commentary)
             .HasMaxLength(200)
-            .HasConversion(v => v!.Value, value => new Commentary(value));
+            .HasConversion(v => v.Value, value => new Commentary(value));
 
-        builder.HasOne<User>()
-            .WithMany()
-            .HasForeignKey(r => r.UserId);
-
-        builder.HasOne<Vehicle>()
-            .WithMany()
-            .HasForeignKey(r => r.VehicleId);
+        //builder.HasOne<Vehicle>()
+        //    .WithMany()
+        //    .HasForeignKey(r => r.VehicleId);
 
         builder.HasOne<Rental>()
             .WithMany()
             .HasForeignKey(r => r.RentId);
+
+        //builder.HasOne<User>()
+        //    .WithMany()
+        //    .HasForeignKey(r => r.UserId);
     }
 }

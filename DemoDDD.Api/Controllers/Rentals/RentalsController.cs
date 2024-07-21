@@ -30,20 +30,23 @@ public class RentalsController : ControllerBase
 
     [HttpPost]
     public async Task<IActionResult> ReserveRent(
-        Guid id,
-        RentRequest rentRequest,
+        [FromBody] RentRequest rentRequest,
         CancellationToken cancellationToken)
     {
         var command = new ReserveRentCommand
         (
             rentRequest.VechicleId,
             rentRequest.UserId,
-            rentRequest.StartDate,
-            rentRequest.EndDate                    
+            DateOnly.FromDateTime(rentRequest.StartDate),
+            DateOnly.FromDateTime(rentRequest.EndDate)
         );
 
         var result = await _sender.Send(command, cancellationToken);
+        if(result.IsSuccess)
+        {
+            return CreatedAtAction(nameof(GetRental), new { id = result.Value });
+        }        
 
-        return CreatedAtAction(nameof(GetRental), new {id = result.Value});
+        return Ok(result);        
     }
 }

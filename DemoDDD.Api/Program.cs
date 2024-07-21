@@ -1,6 +1,8 @@
 using DemoDDD.Infrastucture;
 using DemoDDD.Application;
 using DemoDDD.Api.Extensions;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,6 +25,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.ApplyMigration();
+
+//app.SeedData();
+app.UseCustomExceptionHandler();
 
 app.UseHttpsRedirection();
 

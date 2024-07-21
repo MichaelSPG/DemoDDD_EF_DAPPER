@@ -31,7 +31,9 @@ namespace DemoDDD.Infrastucture
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(connectionString)
+                .EnableDetailedErrors()
+                .EnableSensitiveDataLogging();
                 //.UseSnakeCaseNamingConvention();
             });
 

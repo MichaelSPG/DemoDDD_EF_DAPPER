@@ -9,25 +9,40 @@ namespace DemoDDD.Domain.Reviews
         private Review() 
         {
         }
-        private Review(Guid id, Guid vehicleId, Guid rentId, Guid userId, Rating rating, Commentary commentary, DateTime creationDate)
+        private Review(
+            Guid id
+            //, Guid vehicleId
+            , Guid rentId
+            //, Guid userId
+            , Rating rating
+            , Commentary commentary
+            , DateTime creationDate
+        )
             :base(id)
         {
-            VehicleId = vehicleId;
+            //VehicleId = vehicleId;
             RentId = rentId;
-            UserId = userId;
+            //UserId = userId;
             Rating = rating;
             Commentary = commentary;
             CreationDate = creationDate;
         }
 
-        public Guid VehicleId { get; private set; }
+        //public Guid VehicleId { get; private set; }
         public Guid RentId { get; private set; }
-        public Guid UserId { get; private set; }
+        //public Guid UserId { get; private set; }
         public Rating Rating { get; private set; }
-        public Commentary? Commentary { get; private set; }
+        public Commentary Commentary { get; private set; }
         public DateTime CreationDate { get; private set; }
 
-        public static Result<Review> Create(Guid vehicleId, Rental rent, Guid userId, Rating rating, Commentary commentary, DateTime creationDate)
+        public static Result<Review> Create(
+           // Guid vehicleId, 
+            Rental rent, 
+           // Guid userId, 
+            Rating rating, 
+            Commentary commentary, 
+            DateTime creationDate
+            )
         {
             if(rent.Status != RentalStatus.Completed)
             {
@@ -35,9 +50,9 @@ namespace DemoDDD.Domain.Reviews
             }
             var review = new Review(
                 Guid.NewGuid(), 
-                vehicleId, 
+                //vehicleId, 
                 rent.Id, 
-                userId, 
+                //userId, 
                 rating, 
                 commentary, 
                 creationDate
