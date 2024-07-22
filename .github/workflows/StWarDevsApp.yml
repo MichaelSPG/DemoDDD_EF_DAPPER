@@ -1,10 +1,10 @@
-name: Build and deploy .NET Core application to Web App StwWarDevsTesting
+name: Build and deploy .NET Core application to Web App StWarDevsApp
 on:
   push:
     branches:
     - main
 env:
-  AZURE_WEBAPP_NAME: StwWarDevsTesting
+  AZURE_WEBAPP_NAME: StWarDevsApp
   AZURE_WEBAPP_PACKAGE_PATH: DemoDDD.WebServerApp\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.StwWarDevsTesting_9946 }}
+        publish-profile: ${{ secrets.StWarDevsApp_00F1 }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
